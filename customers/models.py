@@ -2,6 +2,7 @@ from django.db import models
 from django.core.validators import RegexValidator
 
 class Client(models.Model):
+    id = models.AutoField(primary_key=True, blank=False, null=False)
     first_name = models.CharField(max_length=30, null=True, blank=True)
     last_name = models.CharField(max_length=30, null=True, blank=True)
     tel_number = models.CharField(max_length=9, validators=[RegexValidator(r'^[0-9]{9}$')], unique=True, null=False)

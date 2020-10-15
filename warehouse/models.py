@@ -1,6 +1,7 @@
 from django.db import models
 
 class PGroup(models.Model):
+    id = models.AutoField(primary_key=True, blank=False, null=False)
     group_name = models.CharField(max_length=50, null=False, blank=False, unique=True)
 
     def __str__(self):
@@ -12,6 +13,7 @@ class PGroup(models.Model):
 
 
 class SGroup(models.Model):
+    id = models.AutoField(primary_key=True, blank=False, null=False)
     group_name = models.CharField(max_length=50, null=False, blank=False, unique=True)
 
     def __str__(self):
@@ -23,6 +25,7 @@ class SGroup(models.Model):
 
 
 class Product(models.Model):
+    id = models.AutoField(primary_key=True, blank=False, null=False)
     product_name = models.CharField(max_length=50, null=False, blank=False, unique=True)
     product_barcode = models.CharField(max_length=50, null=False, blank=False, unique=True)
     product_group = models.ForeignKey(PGroup, null=True, blank=False, on_delete=models.SET_NULL)
@@ -44,6 +47,7 @@ class Product(models.Model):
 
 
 class Service(models.Model):
+    id = models.AutoField(primary_key=True, blank=False, null=False)
     service_name = models.CharField(max_length=50, null=False, blank=False, unique=True)
     service_group = models.ForeignKey(SGroup, null=True, blank=False, on_delete=models.SET_NULL)
     service_price = models.DecimalField(null=True, blank=True, unique=False, decimal_places=2, max_digits=5)
