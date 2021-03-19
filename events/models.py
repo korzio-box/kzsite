@@ -19,9 +19,19 @@ class Event(models.Model):
         return str(self.timestamp)[0:10] + "/" + str(self.timestamp)[11:16] + "/" + str(self.id)
 
 
-class EventItems(models.Model):
+class EventProduct(models.Model):
     id = models.AutoField(primary_key=True, blank=False, null=False)
     product = models.ForeignKey(Product, on_delete=models.SET_NULL, null=True)
+    event = models.ForeignKey(Event, on_delete=models.SET_NULL, null=True)
+    quantity = models.DecimalField(max_digits=5, decimal_places=2)
+
+    def __str__(self):
+        eid = str(self.event)
+        return eid + "/" + str(self.id)
+
+class EventService(models.Model):
+    id = models.AutoField(primary_key=True, blank=False, null=False)
+    service = models.ForeignKey(Service, on_delete=models.SET_NULL, null=True)
     event = models.ForeignKey(Event, on_delete=models.SET_NULL, null=True)
     quantity = models.DecimalField(max_digits=5, decimal_places=2)
 
