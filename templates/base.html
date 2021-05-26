@@ -5,10 +5,12 @@
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
         <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
         {% load static %}
-        <link rel="stylesheet" type="text/css" href="{% static 'css/basic.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'warehouse/css/basic.css' %}">
     </head>
 <body>
     <h1>COKOLWIEK</h1>
+    {% block sidebar %}
+    {% endblock %}
             {% block content %}
             {% endblock %}
 </body>

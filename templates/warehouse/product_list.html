@@ -1,12 +1,43 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h2>Products</h2>
-    <ul>
-        {% for Product in product_list %}
-            <li>
-                <a href="{{ Product.get_absolute_url }}"> {{ Product.name }}</a>
-            </li>
-        {% endfor %}
-    </ul>
+<script type="text/javascript" language="javascript" src="http://datatables.net/release-datatables/media/js/jquery.js"></script>
+<script type="text/javascript" language="javascript" src="http://datatables.net/release-datatables/media/js/jquery.dataTables.js"></script>
+<script>
+$(document).ready(function(){
+    // Initalize DataTables on <table> tag with id="example"
+    $('#plistTable').dataTable({
+        "language": {
+            "lengthMenu": "Wyświetl _MENU_ wyników na stronie",
+            "zeroRecords": "Bak wyników",
+            "search": "Wyszukaj:",
+            "info": "Strona _PAGE_ z _PAGES_",
+            "infoEmpty": "Nie ma nic do wyświetlenia",
+            "infoFiltered": "(wyfiltrowano z _MAX_ wyników)",
+            "paginate": {
+                "previous": "poprzednia ",
+                "next": " następna"
+            }
+        }
+    });  
+});
+</script>
+
+<table id="plistTable", class="plistTable">
+    <thead>   <!-- header row -->
+        <tr>
+            <th>Nazwa</th>
+        </tr>
+    </thead>
+    <tbody>   <!-- data  -->
+    {% for Product in product_list %}
+        <tr>
+            <td>
+                <a href="{{ Product.get_absolute_url }}"> {{ Product.name }} </a>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
 {% endblock %}

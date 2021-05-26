@@ -16,14 +16,18 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from customers.views import korzio_response
-from warehouse.views import ProductListView, ProductDetailView
+from warehouse.views import *
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('korzio/', korzio_response),
     path('products/', ProductListView.as_view(), name='product_list'),
     path('products/product_detail/<int:pk>/', ProductDetailView.as_view(), name='product_detail'),
+    path('product_create/', ProductCreateView.as_view(), name='product_create'),
+
 ]
+
 
 
 
