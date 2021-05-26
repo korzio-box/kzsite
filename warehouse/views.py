@@ -17,6 +17,7 @@ class ProductCreateView(CreateView):
     model = Product
     context_object_name = 'product_create'
     form_class = ProductCreateForm
+    template_name = 'warehouse/product_create.html'
 
 
 class serviceListView(ListView):

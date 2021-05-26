@@ -49,9 +49,11 @@ table.plistTable tfoot .links a{
   border-radius: 5px;
 }
 .sidebar-nav {
-    margin-top: 20px;
-    padding: 0;
-    list-style: none;
+    margin-top: 2%;
+    margin-left: 2%;
+    border: 2px solid #000000;
+    padding: 8px 2px;
+    text-align: center;
 }
 a.link { 
   color: #000000
