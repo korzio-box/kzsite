@@ -5,4 +5,9 @@ class ProductCreateForm(forms.ModelForm):
     class Meta:
         model = Product
         exclude = ('',)
+
+class ProductEditForm(forms.ModelForm):
+    class Meta:
+        model = Product
+        exclude = ('',)
     

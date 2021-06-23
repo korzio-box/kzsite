@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import ListView, DetailView, CreateView, DeleteView
+from django.views.generic import ListView, DetailView, CreateView, DeleteView, UpdateView
 from warehouse.models import *
 from warehouse.forms import *
 
@@ -18,6 +18,12 @@ class ProductCreateView(CreateView):
     context_object_name = 'product_create'
     form_class = ProductCreateForm
     template_name = 'warehouse/product_create.html'
+
+class ProductEditView(UpdateView):
+    model = Product
+    context_object_name = 'product_edit'
+    form_class = ProductEditForm
+    template_name = 'warehouse/product_edit.html'
 
 
 class serviceListView(ListView):
