@@ -1,0 +1,31 @@
+div.sidebar {
+    margin-left: 5%;
+    margin-top: 2%;
+  }
+table.sidebar {
+    border: 1px solid #1C6EA4;
+    background-color: #EEEEEE;
+    width: 20%;
+    text-align: center;
+    border-collapse: collapse;
+  }
+  table.sidebar td, table.sidebar th {
+    border: 2px solid #AAAAAA;
+    padding: 3px 2px;
+  }
+  table.sidebar tbody td {
+    font-size: 13px;
+  }
+  table.sidebar tfoot td {
+    font-size: 14px;
+  }
+  table.sidebar tfoot .links {
+    text-align: right;
+  }
+  table.sidebar tfoot .links a{
+    display: inline-block;
+    background: #1C6EA4;
+    color: #FFFFFF;
+    padding: 2px 8px;
+    border-radius: 5px;
+  }

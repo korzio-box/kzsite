@@ -6,20 +6,33 @@
         <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
         {% load static %}
         <link rel="stylesheet" type="text/css" href="{% static 'main/css/basic.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'main/css/sidebar.css' %}">
     </head>
 <body>
     <h1>COKOLWIEK</h1>
-    {% block sidebar %}
-<table class="sidebar-nav">
-<tr>
-    <td>
-        <a class="link" href="{% url 'product_list' %}">Produkty</a>
-    </td>
-</tr>
-</table>
-    {% endblock %}
-            {% block content %}
-            {% endblock %}
+    <div class="sidebar">
+        {% block sidebar %}
+        <table>
+            <tbody>
+                <tr>
+                    <td>
+                        <a class="link" href="{% url 'product_list' %}">Produkty</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <a class="link" href="{% url 'client_list' %}">Klienci</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        {% endblock %}
+    </div>
+    <div class="content">
+        {% block content %}
+        {% endblock %}
+    </div>
+
             
 </body>
 </html>

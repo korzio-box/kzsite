@@ -24,27 +24,31 @@ $(document).ready(function(){
 });
 </script>
 <div class="add">
-    <a class="link" href="{% url 'product_create' %}">Dodaj produkt</a>
+    <a class="link" href="{% url 'client_create' %}">Dodaj klienta</a>
 </div>
 <table id="plistTable", class="plistTable">
     <thead>   <!-- header row -->
         <tr>
-            <th>Nazwa</th>
-            <th>Grupa</th>
-            <th>Typ</th>
+            <th>Imię</th>
+            <th>Nazwisko</th>
+            <th>Nr. telefonu</th>
+            <th>Włosy</th>
         </tr>
     </thead>
     <tbody>   <!-- data  -->
-    {% for Product in product_list %}
+    {% for Client in client_list %}
         <tr>
             <td>
-                <a class ="link" href="{{ Product.get_absolute_url }}"> {{ Product.name }} </a>
+                <a class ="link" href="{{ Client.get_absolute_url }}"> {{ Client.first_name }} </a>
             </td>
             <td>
-                <a class ="link" href="{{ Product.get_absolute_url }}"> {{ Product.group }} </a>
+                <a class ="link" href="{{ Client.get_absolute_url }}"> {{ Client.last_name }} </a>
             </td>
             <td>
-                <a class ="link" href="{{ Product.get_absolute_url }}"> {{ Product.type }} </a>
+                <a class ="link" href="{{ Client.get_absolute_url }}"> {{ Client.tel_number }} </a>
+            </td>
+            <td>
+                <a class ="link" href="{{ Client.get_absolute_url }}"> {{ Client.hair }} </a>
             </td>
         </tr>
     {% endfor %}

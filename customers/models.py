@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 from django.core.validators import RegexValidator
 
 class Client(models.Model):
@@ -23,3 +24,6 @@ class Client(models.Model):
         self.first_name = self.first_name.capitalize()
         self.last_name = self.last_name.capitalize()
         super(Client, self).save(*args, **kwargs)
+
+    def get_absolute_url(self):
+        return reverse('client_list', args=[str(self.id)])
