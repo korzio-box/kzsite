@@ -30,6 +30,7 @@ $(document).ready(function(){
     <thead>   <!-- header row -->
         <tr>
             <th>Nazwa</th>
+            <th>Rodzaj</th>
             <th>Grupa</th>
             <th>Typ</th>
         </tr>
@@ -39,6 +40,9 @@ $(document).ready(function(){
         <tr>
             <td>
                 <a class ="link" href="{{ Product.get_absolute_url }}"> {{ Product.name }} </a>
+            </td>
+            <td>
+                <a class ="link" href="{{ Product.get_absolute_url }}"> {{ Product.get_pors_display }} </a>
             </td>
             <td>
                 <a class ="link" href="{{ Product.get_absolute_url }}"> {{ Product.group }} </a>

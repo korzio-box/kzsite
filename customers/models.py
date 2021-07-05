@@ -8,17 +8,13 @@ class Client(models.Model):
     last_name = models.CharField(max_length=30, null=True, blank=True)
     tel_number = models.CharField(max_length=9, validators=[RegexValidator(r'^[0-9]{9}$')], unique=True, null=False)
 
-    Choices_Hair = (
+    CHOICES_HAIR = (
         (1, "Długie"),
         (2, "Pół-długie"),
         (3, "Krótkie"))
 
+    hair = models.PositiveSmallIntegerField(max_length=1, choices=CHOICES_HAIR, blank=True)
 
-    Hair = models.PositiveSmallIntegerField(max_length=1, choices=Choices_Hair, blank=True)
-    def to_representation(self, instance):
-        rethair = super().to_representation(instance)
-        rethair['Hair'] = instance.get_Hair_display()
-        return rethair
 
     def __str__(self):
         stel = str(self.tel_number)

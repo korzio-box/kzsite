@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class='counters'>
+    <ul>
+        <li><strong>Produkty: </strong> {{ num_products }}</li>
+        <li><strong>Klienci: </strong> {{ num_customers }}</li>
+        <li><strong>Zdarzenia: </strong> {{ num_operations }}</li>
+      </ul>
+</div>
+{% endblock %}

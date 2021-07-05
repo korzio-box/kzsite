@@ -14,17 +14,6 @@ class PGroup(models.Model):
         super(PGroup, self).save(*args, **kwargs)
 
 
-class SGroup(models.Model):
-    id = models.AutoField(primary_key=True, blank=False, null=False)
-    name = models.CharField(max_length=50, null=False, blank=False, unique=True)
-
-    def __str__(self):
-        return self.name
-
-    def save(self, *args, **kwargs):
-        self.name = self.name.capitalize()
-        super(SGroup, self).save(*args, **kwargs)
-
 class PType(models.Model):
     id = models.AutoField(primary_key=True, blank=False, null=False)
     name = models.CharField(max_length=50, null=False, blank=False, unique=True)
@@ -42,9 +31,13 @@ class Product(models.Model):
     barcode = models.CharField(max_length=50, null=False, blank=False, unique=True)
     group = models.ForeignKey(PGroup, null=True, blank=False, on_delete=models.SET_NULL)
     type = models.ForeignKey(PType, null=True, blank=False, on_delete=models.SET_NULL)
+
+    CHOICES_PORS = (
+        (1, "Produkt"),
+        (2, "Usługa"))
+
+    pors = models.CharField(max_length=1, choices=CHOICES_PORS, blank=True)
     price = models.DecimalField(null=True, blank=True, unique=False, decimal_places=2, max_digits=5)
-
-
 
 
     def __str__(self):
@@ -56,16 +49,3 @@ class Product(models.Model):
 
     def get_absolute_url(self):
         return reverse('product_detail', args=[str(self.id)])
-
-class Service(models.Model):
-    id = models.AutoField(primary_key=True, blank=False, null=False)
-    name = models.CharField(max_length=50, null=False, blank=False, unique=True)
-    group = models.ForeignKey(SGroup, null=True, blank=False, on_delete=models.SET_NULL)
-    price = models.DecimalField(null=True, blank=True, unique=False, decimal_places=2, max_digits=5)
-
-    def __str__(self):
-        return self.name
-
-    def save(self, *args, **kwargs):
-        self.name = self.name.capitalize()
-        super(Service, self).save(*args, **kwargs)

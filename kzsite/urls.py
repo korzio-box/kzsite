@@ -15,10 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from kzsite.views import BaseView
 
 
 
 urlpatterns = [
+    path('', BaseView, name='home'),
     path('admin/', admin.site.urls),
     path('products/', include('warehouse.urls')),
     path('customers/', include('customers.urls')),

@@ -25,7 +25,3 @@ class ProductEditView(UpdateView):
     form_class = ProductEditForm
     template_name = 'warehouse/product_edit.html'
 
-
-class serviceListView(ListView):
-    model = Service
-    context_object_name = 'service_list'
