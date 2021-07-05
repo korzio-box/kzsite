@@ -8,12 +8,17 @@ class Client(models.Model):
     last_name = models.CharField(max_length=30, null=True, blank=True)
     tel_number = models.CharField(max_length=9, validators=[RegexValidator(r'^[0-9]{9}$')], unique=True, null=False)
 
-    class Hair(models.TextChoices):
-        lo = '1', "długie"
-        hl = '2', "Pół-długie"
-        sh = '3', "Krótkie"
+    Choices_Hair = (
+        (1, "Długie"),
+        (2, "Pół-długie"),
+        (3, "Krótkie"))
 
-    Hair = models.CharField(max_length=1, choices=Hair.choices, blank=True)
+
+    Hair = models.PositiveSmallIntegerField(max_length=1, choices=Choices_Hair, blank=True)
+    def to_representation(self, instance):
+        rethair = super().to_representation(instance)
+        rethair['Hair'] = instance.get_Hair_display()
+        return rethair
 
     def __str__(self):
         stel = str(self.tel_number)
@@ -26,4 +31,4 @@ class Client(models.Model):
         super(Client, self).save(*args, **kwargs)
 
     def get_absolute_url(self):
-        return reverse('client_list', args=[str(self.id)])
+        return reverse('client_detail', args=[str(self.id)])

@@ -7,6 +7,6 @@
     <p><strong>Imię:</strong> {{ client_detail.first_name }}</p> 
     <p><strong>Nazwisko:</strong> {{ client_detail.last_name }}</p>
     <p><strong>Numer telefonu:</strong> {{ client_detail.tel_number }}</p>
-    <p><strong>Włosy:</strong> {{ client_detail.Hair }}</p>
+    <p><strong>Włosy:</strong> {{ client_detail.get_Hair_display }}</p>
   {% endblock %}
 </div>
