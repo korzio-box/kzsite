@@ -11,22 +11,7 @@
 <body>
     <a class="link" href="{% url 'home' %}">COKOLWIEK</a>
     <div class="sidebar">
-        {% block sidebar %}
-        <table>
-            <tbody>
-                <tr>
-                    <td>
-                        <a class="link" href="{% url 'product_list' %}">Produkty</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <a class="link" href="{% url 'client_list' %}">Klienci</a>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        {% endblock %}
+        {% include "sidebar.html" %}
     </div>
     <div class="content">
         {% block content %}
