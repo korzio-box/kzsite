@@ -7,12 +7,18 @@
         {% load static %}
         <link rel="stylesheet" type="text/css" href="{% static 'main/css/basic.css' %}">
         <link rel="stylesheet" type="text/css" href="{% static 'main/css/sidebar.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'main/css/ware_sidebar.css' %}">
     </head>
 <body>
     <a class="link" href="{% url 'home' %}">COKOLWIEK</a>
     <div class="sidebar">
         {% include "sidebar.html" %}
     </div>
+    {% if product_create or product_detail or product_edit or product_list %}
+    <div style="display: inline-block" class="ware_sidebar">
+        {% include "ware_sidebar.html" %}
+    </div>
+    {% endif %}
     <div class="content">
         {% block content %}
         {% endblock %}

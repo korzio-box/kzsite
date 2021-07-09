@@ -19,9 +19,17 @@ from warehouse.views import *
 
 urlpatterns = [
     path('', ProductListView.as_view(), name='product_list'),
+    path('', PGroupListView.as_view(), name='pgroup_list'),
+    path('', PTypeListView.as_view(), name='ptype_list'),
     path('product_detail/<int:pk>/', ProductDetailView.as_view(), name='product_detail'),
+    path('ptype_detail/<int:pk>/', PTypeDetailView.as_view(), name='ptype_detail'),
+    path('pgroup_detail/<int:pk>/', PGroupDetailView.as_view(), name='pgroup_detail'),
+    path('ptype_create/', PTypeCreateView.as_view(), name='ptype_create'),
+    path('pgroup_create/', PGroupCreateView.as_view(), name='pgroup_create'),
     path('product_create/', ProductCreateView.as_view(), name='product_create'),
     path('product_edit/<int:pk>/', ProductEditView.as_view(), name='product_edit'),
+    path('ptype_edit/<int:pk>/', PTypeEditView.as_view(), name='ptype_edit'),
+    path('pgroup_edit/<int:pk>/', PGroupEditView.as_view(), name='pgroup_edit'),
 
 
 ]

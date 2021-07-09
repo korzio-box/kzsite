@@ -13,6 +13,10 @@ class PGroup(models.Model):
         self.name = self.name.capitalize()
         super(PGroup, self).save(*args, **kwargs)
 
+        
+    def get_absolute_url(self):
+        return reverse('pgroup_detail', args=[str(self.id)])
+
 
 class PType(models.Model):
     id = models.AutoField(primary_key=True, blank=False, null=False)
@@ -24,6 +28,9 @@ class PType(models.Model):
     def save(self, *args, **kwargs):
         self.name = self.name.capitalize()
         super(PType, self).save(*args, **kwargs)
+        
+    def get_absolute_url(self):
+        return reverse('ptype_detail', args=[str(self.id)])
 
 class Product(models.Model):
     id = models.AutoField(primary_key=True, blank=False, null=False)

@@ -13,7 +13,7 @@ class Client(models.Model):
         (2, "Pół-długie"),
         (3, "Krótkie"))
 
-    hair = models.PositiveSmallIntegerField(max_length=1, choices=CHOICES_HAIR, blank=True)
+    hair = models.PositiveSmallIntegerField(choices=CHOICES_HAIR, blank=True)
 
 
     def __str__(self):

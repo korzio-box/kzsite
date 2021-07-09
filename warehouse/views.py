@@ -25,6 +25,18 @@ class ProductEditView(UpdateView):
     form_class = ProductEditForm
     template_name = 'warehouse/product_edit.html'
 
+class PTypeEditView(UpdateView):
+    model = PType
+    context_object_name = 'ptype_edit'
+    form_class = PTypeEditForm
+    template_name = 'warehouse/ptype_edit.html'
+
+class PGroupEditView(UpdateView):
+    model = PGroup
+    context_object_name = 'pgroup_edit'
+    form_class = PGroupEditForm
+    template_name = 'warehouse/pgroup_edit.html'
+
 class PTypeListView(ListView):
     model = PType
     context_object_name = 'ptype_list'
@@ -40,7 +52,7 @@ class PTypeDetailView(DetailView):
     context_object_name = 'ptype_detail'
     template_name = 'warehouse/ptype_detail.html'
 
-class PGrouptDetailView(DetailView):
+class PGroupDetailView(DetailView):
     model = PGroup
     context_object_name = 'pgroup_detail'
     template_name = 'warehouse/pgroup_detail.html'
@@ -51,7 +63,7 @@ class PTypeCreateView(CreateView):
     form_class = ProductCreateForm
     template_name = 'warehouse/ptype_create.html'
 
-class PGrouproductCreateView(CreateView):
+class PGroupCreateView(CreateView):
     model = PGroup
     context_object_name = 'pgroup_create'
     form_class = ProductCreateForm
