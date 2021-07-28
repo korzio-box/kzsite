@@ -43,7 +43,7 @@ class Product(models.Model):
         (1, "Produkt"),
         (2, "Usługa"))
 
-    pors = models.CharField(max_length=1, choices=CHOICES_PORS, blank=True)
+    pors = models.PositiveSmallIntegerField(choices=CHOICES_PORS, blank=True)
     price = models.DecimalField(null=True, blank=True, unique=False, decimal_places=2, max_digits=5)
 
 

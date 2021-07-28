@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+<div class="content">
+  {% block content %}
+    <a class="link" href="{% url 'event_edit' pk=event_detail.pk %}">Edytuj</a>
+    <h2>{{ client_detail.first_name }}{{" "}}{{ client_detail.last_name }}</h2>
+    <p><strong>Imię:</strong> {{ event_detail.first_name }}</p> 
+    <p><strong>Nazwisko:</strong> {{ event_detail.last_name }}</p>
+    <p><strong>Numer telefonu:</strong> {{ event_detail.tel_number }}</p>
+    <p><strong>Status:</strong> {{ event_detail.get_status_display }}</p>
+  {% endblock %}
+</div>

@@ -1,6 +1,7 @@
 from django.db import models
 from warehouse.models import Product
 from customers.models import Client
+from django.urls import reverse
 
 # Create your models here.
 
@@ -18,6 +19,9 @@ class Event(models.Model):
 
     def __str__(self):
         return str(self.time_done)[0:10] + "/" + str(self.time_done)[11:16] + "/" + str(self.id)
+    
+    def get_absolute_url(self):
+        return reverse('event_detail', args=[str(self.id)])
 
 
 class EventProduct(models.Model):

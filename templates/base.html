@@ -13,11 +13,6 @@
     <div class="sidebar">
         {% include "sidebar.html" %}
     </div>
-    {% if product_create or product_detail or product_edit or product_list %}
-    <div style="display: inline-block" class="ware_sidebar">
-        {% include "ware_sidebar.html" %}
-    </div>
-    {% endif %}
     <div class="content">
         {% block content %}
         {% endblock %}
