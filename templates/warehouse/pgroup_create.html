@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-<form method="post" class = "create_ptype">
+<form method="post" class = "create_pgroup">
     {% csrf_token %}
     {{ form.as_p }}
     <input type="submit" value="Zapisz">

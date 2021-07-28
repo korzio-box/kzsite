@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block content %}
+<script type="text/javascript" language="javascript" src="http://datatables.net/release-datatables/media/js/jquery.js"></script>
+<script type="text/javascript" language="javascript" src="http://datatables.net/release-datatables/media/js/jquery.dataTables.js"></script>
+<script>
+$(document).ready(function(){
+    // Initalize DataTables on <table> tag with id="example"
+    $('#plistTable').dataTable({
+
+        "language": {
+            "lengthMenu": "Wyświetl _MENU_ wyników na stronie",
+            "zeroRecords": "Bak wyników",
+            "search": "Wyszukaj:",
+            "info": "Strona _PAGE_ z _PAGES_",
+            "infoEmpty": "Nie ma nic do wyświetlenia",
+            "infoFiltered": "(wyfiltrowano z _MAX_ wyników)",
+            "paginate": {
+                "previous": "poprzednia ",
+                "next": " następna"
+            }
+        }
+    });  
+});
+</script>
+
+<div class="add">
+    <a class="link" href="{% url 'ptype_create' %}">Dodaj typ</a>
+</div>
+<table id="plistTable", class="plistTable">
+    <thead>   <!-- header row -->
+        <tr>
+            <th>Nazwa</th>
+        </tr>
+    </thead>
+    <tbody>   <!-- data  -->
+    {% for PType in ptype_list %}
+        <tr>
+            <td>
+                <a class ="link" href="{{ PType.get_absolute_url }}"> {{ PType.name }} </a>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

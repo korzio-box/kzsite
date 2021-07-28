@@ -60,11 +60,11 @@ class PGroupDetailView(DetailView):
 class PTypeCreateView(CreateView):
     model = PType
     context_object_name = 'ptype_create'
-    form_class = ProductCreateForm
+    form_class = PTypeCreateForm
     template_name = 'warehouse/ptype_create.html'
 
 class PGroupCreateView(CreateView):
     model = PGroup
     context_object_name = 'pgroup_create'
-    form_class = ProductCreateForm
+    form_class = PGroupCreateForm
     template_name = 'warehouse/product_create.html'
