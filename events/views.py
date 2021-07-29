@@ -23,5 +23,5 @@ class EventDetailView(DetailView):
 class EventEditView(UpdateView):
     model = Event
     context_object_name = 'event_edit'
-    #form_class = EventEditForm
+    form_class = EventEditForm
     template_name = 'events/event_edit.html'
