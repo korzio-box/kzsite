@@ -2,7 +2,8 @@
 
 <div class="content">
   {% block content %}
-    <a class="link" href="{% url 'pgroup_edit' pk=pgroup_detail.pk %}">Edytuj</a>
+  <button type="submit" value="" class="btn btn-primary w-100 mb-3">Zapisz</button>
+  <button role="button" onclick="javascript:history.back();" class="btn btn-secondary w-100">Cofnij</button>
     <h2>{{ pgroup_detail.name }}</h2>
   {% endblock %}
 </div>

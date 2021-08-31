@@ -2,11 +2,13 @@
 
 <div class="content">
   {% block content %}
-    <a class="link" href="{% url 'client_edit' pk=client_detail.pk %}">Edytuj</a>
+    <button class="link btn btn-primary w-100 mb-3" role="button" href="{% url 'client_edit' pk=client_detail.pk %}">Edytuj</button>
+    <button role="button" onclick="javascript:history.back();" class="btn btn-secondary w-100">Cofnij</button>
     <h2>{{ client_detail.first_name }}{{" "}}{{ client_detail.last_name }}</h2>
     <p><strong>Imię:</strong> {{ client_detail.first_name }}</p> 
     <p><strong>Nazwisko:</strong> {{ client_detail.last_name }}</p>
     <p><strong>Numer telefonu:</strong> {{ client_detail.tel_number }}</p>
     <p><strong>Włosy:</strong> {{ client_detail.get_hair_display }}</p>
   {% endblock %}
+
 </div>

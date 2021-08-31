@@ -1,8 +1,22 @@
 {% extends "base.html" %}
 {% block content %}
-<form method="post" class = "create_event">
+<form action="" method="post" class = "create_event" enctype="multipart/form-data">
     {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="Zapisz">
-</form>
+    
+    <table>
+      {{ form.as_p }}
+    </table>
+      {% for form in formset %}
+        {% for hidden in form.hidden_fields %}
+        {{ hidden }}
+        {% endfor %}
+      {% endfor %}
+    <table>
+      {{ event_formset }}
+    </table>
+
+
+      <button type="submit" value="" class="btn btn-primary w-100 mb-3">Zapisz</button>
+      <button role="button" onclick="javascript:history.back();" class="btn btn-secondary w-100">Cofnij</button>
+  </form>
 {% endblock %}

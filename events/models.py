@@ -10,7 +10,6 @@ class Event(models.Model):
     client = models.ForeignKey(Client, null=True, blank=False, on_delete=models.SET_NULL)
     time_add = models.DateTimeField(auto_now=True, blank=False, null=False)
     time_done = models.DateTimeField(auto_now=True, blank=False, null=False)
-    Product = models.ManyToManyField(Product, blank=True)
     CHOICES_STATUS = (
         (1, "Planowane"),
         (2, "Wykonane"))
@@ -21,7 +20,7 @@ class Event(models.Model):
         return str(self.time_done)[0:10] + "/" + str(self.time_done)[11:16] + "/" + str(self.id)
     
     def get_absolute_url(self):
-        return reverse('event_detail', args=[str(self.id)])
+        return reverse('event_list')#, args=[str(self.id)])
 
 
 class EventProduct(models.Model):

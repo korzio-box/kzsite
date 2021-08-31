@@ -2,7 +2,8 @@
 
 <div class="content">
   {% block content %}
-    <a class="link" href="{% url 'product_edit' pk=product_detail.pk %}">Edytuj</a>
+    <button class="link btn btn-primary w-100 mb-3" href="{% url 'product_edit' pk=product_detail.pk %}">Edytuj</button>
+    <button role="button" onclick="javascript:history.back();" class="btn btn-secondary w-100">Cofnij</button>
     <h2>{{ product_detail.name }}</h2>
     <p><strong>Barcode:</strong> {{ product_detail.barcode }}</p> 
     <p><strong>Rodzaj:</strong> {{ product_detail.get_pors_display }}</p>

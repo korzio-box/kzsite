@@ -4,6 +4,7 @@
 <form method="post" class = "create_ptype">
     {% csrf_token %}
     {{ form.as_p }}
-    <input type="submit" value="Zapisz">
+    <button type="submit" value="" class="btn btn-primary w-100 mb-3">Zapisz</button>
+    <button role="button" onclick="javascript:history.back();" class="btn btn-secondary w-100">Cofnij</button>
 </form>
 {% endblock %}
