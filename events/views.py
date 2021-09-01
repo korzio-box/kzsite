@@ -51,3 +51,23 @@ class EventEditView(UpdateView):
     context_object_name = 'event_edit'
     form_class = EventForm
     template_name = 'events/event_edit.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(EventEditView, self).get_context_data(**kwargs)
+        if self.request.POST:
+            context['event_formset'] = EventProductFormset(self.request.POST, instance=self.object)
+            context['event_formset'].full_clean()
+        else:
+            context['event_formset'] = EventProductFormset(instance=self.object)
+        return context
+
+    def form_valid(self, form):
+        context = self.get_context_data(form=form)
+        formset = context['event_formset']
+        if formset.is_valid():
+            response = super().form_valid(form)
+            formset.instance = self.object
+            formset.save()
+            return response
+        else:
+            return super().form_invalid(form)

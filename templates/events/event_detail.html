@@ -2,7 +2,7 @@
 
 <div class="content">
   {% block content %}
-    <button class="link btn btn-primary w-100 mb-3" href="{% url 'event_edit' pk=event_detail.pk %}">Edytuj</button>
+    <a class="link btn btn-primary w-10 mb-3" href="{% url 'event_edit' pk=event_detail.pk %}">Edytuj</a>
     <button role="button" onclick="javascript:history.back();" class="btn btn-secondary w-100">Cofnij</button>
     <h2>{{ client_detail.first_name }}{{" "}}{{ client_detail.last_name }}</h2>
     <p><strong>Imię:</strong> {{ event_detail.first_name }}</p> 
