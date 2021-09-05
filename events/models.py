@@ -20,14 +20,14 @@ class Event(models.Model):
         return str(self.time_done)[0:10] + "/" + str(self.time_done)[11:16] + "/" + str(self.id)
     
     def get_absolute_url(self):
-        return reverse('event_list')#, args=[str(self.id)])
+        return reverse('event_detail', args=[str(self.id)])
 
 
 class EventProduct(models.Model):
     id = models.AutoField(primary_key=True, blank=False, null=False)
-    product = models.ForeignKey(Product, on_delete=models.SET_NULL, null=True)
+    product = models.ForeignKey(Product, on_delete=models.SET_NULL, null=True, verbose_name="Produkt")
     event = models.ForeignKey(Event, on_delete=models.SET_NULL, null=True)
-    quantity = models.DecimalField(max_digits=5, decimal_places=2)
+    quantity = models.DecimalField(max_digits=5, decimal_places=2, verbose_name="Ilość")
 
     def __str__(self):
         eid = str(self.event)

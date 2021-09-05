@@ -14,6 +14,9 @@ class ClientCreateView(CreateView):
     form_class = ClientCreateForm
     template_name = 'customers/client_create.html'
 
+    def get_success_url(self):
+        return reverse('client_list')
+
 class ClientDetailView(DetailView):
     model = Client
     context_object_name = 'client_detail'
@@ -24,3 +27,6 @@ class ClientEditView(UpdateView):
     context_object_name = 'client_edit'
     form_class = ClientEditForm
     template_name = 'customers/client_edit.html'
+
+    def get_success_url(self):
+        return reverse('client_list')

@@ -2,7 +2,7 @@
 
 <div class="content">
   {% block content %}
-  <a type="link" value="" href="{% url 'pgroup_edit' pk=pgroup_detail.pk %}" class="btn btn-outline-primary w-10 mb-3">Edytuj</a>
+  <a type="link" value="" href="{% url 'pgroup_edit' pk=pgroup_detail.pk %}" class="btn btn-primary w-10 mb-3">Edytuj</a>
   <a type="link" role="button" onclick="javascript:history.back();" class="btn btn-outline-secondary w-10 mb-3">Cofnij</a>
     <h2>{{ pgroup_detail.name }}</h2>
   {% endblock %}

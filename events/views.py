@@ -15,11 +15,10 @@ class EventListView(ListView):
     template_name = 'events/event_list.html'
     
 class EventCreateView(CreateView):
-    ##model = Event
+    model = Event
     context_object_name = 'event_create'
     form_class = EventForm
     template_name = 'events/event_create.html'
-    success_url=reverse_lazy('event_list')
 
     def get_context_data(self, **kwargs):
         context = super(EventCreateView, self).get_context_data(**kwargs)
@@ -39,6 +38,9 @@ class EventCreateView(CreateView):
             return response
         else:
             return super(EventCreateView, self).form_invalid(form)
+
+    def get_success_url(self):
+        return reverse('event_list')
 
 
 class EventDetailView(DetailView):
@@ -71,3 +73,6 @@ class EventEditView(UpdateView):
             return response
         else:
             return super().form_invalid(form)
+
+    def get_success_url(self):
+        return reverse('event_list')

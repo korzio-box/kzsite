@@ -14,5 +14,6 @@ class EventForm(forms.ModelForm):
         exclude = ('',)
         
 EventProductFormset = inlineformset_factory(Event, EventProduct,
-                                            fields=('product', 'quantity'),)
+                                            fields=('product', 'quantity'),
+                                            extra=8)
                                             ##form=EventForm)

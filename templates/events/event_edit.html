@@ -2,22 +2,52 @@
 {% block content %}
 <form action="" method="post" class = "create_event" enctype="multipart/form-data">
     {% csrf_token %}
-    
+    <p class="pt-2">
+      <button type="submit" value="" class="btn btn-primary w-10 mb-3" role="button">Zapisz</button>
+      <a role="button" onclick="javascript:history.back();" class="btn btn-outline-secondary w-10 mb-3">Cofnij</a>
+   </p>
     <table>
+      <div class="d-inline-flex">
       {{ form.as_p }}
+      </div>
     </table>
       {% for form in formset %}
         {% for hidden in form.hidden_fields %}
         {{ hidden }}
         {% endfor %}
       {% endfor %}
-    <table>
-      {{ event_formset }}
-    </table>
-
-
-    <p class="pt-2">
-      <button type="submit" value="" class="btn btn-primary w-10 mb-3" role="button">Zapisz</button>
-      <a role="button" onclick="javascript:history.back();" class="btn btn-outline-secondary w-10 mb-3">Cofnij</a>
-  </p>
+    <div class="d-inline-flex py-2">
+      <table class="d-inline-flex py-2 display: inline">
+        <tr class="d-inline-flex">
+          {{ event_formset.management_form }}
+          {{ event_formset.non_form_errors.as_ul }}
+          <table id="formset" class="form">
+          {% for form in event_formset.forms %}
+            {% if forloop.first %}
+            <thead><tr>
+              {% for field in form.visible_fields %}
+              <th>{{ field.label|capfirst }}</th>
+              {% endfor %}
+            </tr></thead>
+            {% endif %}
+            <tr class="">
+            {% for field in form.visible_fields %}
+              <td>
+              {# Include the hidden fields in the form #}
+              {% if forloop.first %}
+                {% for hidden in form.hidden_fields %}
+                {{ hidden }}
+                {% endfor %}
+              {% endif %}
+                {{ field.errors.as_ul }}
+                {{ field }}
+              </td>
+            {% endfor %}
+            </tr>
+          {% endfor %}
+          </table>
+        </tr>
+      </table>
+    </div>
+   </form>
 {% endblock %}
