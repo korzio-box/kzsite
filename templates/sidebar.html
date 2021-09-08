@@ -1,30 +1,10 @@
-<table>
-    <tbody>
-        <tr>
-            <td>
-                <a class="sidelink" href="{% url 'event_list' %}">Zdarzenia</a>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <a class="sidelink" href="{% url 'product_list' %}">Produkty</a>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <a class="subsidelink" href="{% url 'ptype_list' %}">Typy</a>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <a class="subsidelink" href="{% url 'pgroup_list' %}">Grupy</a>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <a class="sidelink" href="{% url 'client_list' %}">Klienci</a>
-            </td>
-        </tr>
-    </tbody>
-</table>
+
+<div class="d-inline-fles p-2 table-bordered">
+    <a class="p-2 btn" href="{% url 'home' %}">Start</a>
+    <a class="p-2 btn" href="{% url 'event_list' %}">Zdarzenia</a>
+    <a class="p-2 btn" href="{% url 'product_list' %}">Produkty</a>
+    <a class="p-2 btn" href="{% url 'ptype_list' %}">Typy</a>
+    <a class="p-2 btn" href="{% url 'pgroup_list' %}">Grupy</a>
+    <a class="p-2 btn" href="{% url 'client_list' %}">Klienci</a>
+</div>
 

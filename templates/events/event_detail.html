@@ -4,24 +4,27 @@
   {% block content %}
     <a class="btn btn-primary w-10 mb-3" href="{% url 'event_edit' pk=event_detail.pk %}">Edytuj</a>
     <a role="button" onclick="javascript:history.back();" class="btn btn-outline-secondary w-10 mb-3">Cofnij</a>
+    <div class="">
     <h2>{{ event_detail.client.first_name }}{{" "}}{{ event_detail.client.last_name }}</h2>
     <p><strong>Imię:</strong> {{ event_detail.client.first_name }}</p> 
     <p><strong>Nazwisko:</strong> {{ event_detail.client.last_name }}</p>
     <p><strong>Numer telefonu:</strong> {{ event_detail.client.tel_number }}</p>
     <p><strong>Status:</strong> {{ event_detail.get_status_display }}</p>
- 
-    <table> 
+  </div>
+  <div class="p-2">
+    <table class="table-sm w-25 table-hover table-bordered"> 
       {% for eventproduct in event_detail.eventproduct_set.all %}
       <tr> 
         <td>
           <a class =""> <strong>Produkt:</strong> {{ eventproduct.product }} </a> 
         </td>
         <td>
-          <a class =""> <strong>Ilość:</strong> {{ eventproduct.quantity }} </a> 
+          <a class ="m-3 p-2"> <strong>Ilość:</strong> {{ eventproduct.quantity }} </a> 
         </td>
       </tr>
       {% endfor %}
     </table>
+  </div>
   {% endblock %}
 </div>
 

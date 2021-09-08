@@ -5,39 +5,43 @@
 <script type="text/javascript" language="javascript" src="http://datatables.net/release-datatables/media/js/jquery.dataTables.js"></script>
 <script>
 $(document).ready(function(){
-    // Initalize DataTables on <table> tag with id="example"
-    $('#plistTable').dataTable({
-
-        "language": {
+ $('#plistTable').dataTable({
+        pageLength : 100,
+        lengthChange : false,
+        language: {
             "lengthMenu": "Wyświetl _MENU_ wyników na stronie",
             "zeroRecords": "Bak wyników",
-            "search": "Wyszukaj:",
+            "search": "Wyszukaj: ",
             "info": "Strona _PAGE_ z _PAGES_",
             "infoEmpty": "Nie ma nic do wyświetlenia",
             "infoFiltered": "(wyfiltrowano z _MAX_ wyników)",
             "paginate": {
                 "previous": "poprzednia ",
                 "next": " następna"
-            }
-        }
-    });  
+            },
+        },
+        
+    });
+    
 });
+
 </script>
 <div class="add">
     <a class="btn btn-primary w-10 mb-3" role="button" href="{% url 'event_create' %}">Dodaj zdarzenie</a>
 </div>
-<table id="plistTable", class="plistTable">
+<div class="container"></div>
+<table id="plistTable", class="table table-hover table-bordered w-50">
     <thead>   <!-- header row -->
-        <tr>
-            <th>Klient</th>
-            <th>Czas dodania</th>
-            <th>Czas zakończenia</th>
-            <th>Status</th>
+        <tr class="bg-primary text-white">
+            <th class="">Klient</th>
+            <th class="">Czas dodania</th>
+            <th class="">Czas zakończenia</th>
+            <th class="">Status</th>
         </tr>
     </thead>
     <tbody>   <!-- data  -->
     {% for Event in event_list %}
-        <tr>
+        <tr class="">
             <td>
                 <a class ="link" href="{{ Event.get_absolute_url }}"> {{ Event.client }} </a>
             </td>
@@ -54,5 +58,6 @@ $(document).ready(function(){
     {% endfor %}
     </tbody>
 </table>
+</div>
 
 {% endblock %}
