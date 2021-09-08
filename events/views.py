@@ -5,8 +5,17 @@ from events.models import *
 from events.forms import *
 from django.http import HttpResponseRedirect
 from django.views.generic.detail import SingleObjectMixin
-from django.db import transaction
+from django.db.models import QuerySet
 
+
+class WarehouseEvent(ListView):
+    context_object_name = 'ware_list'
+    template_name = 'events/ware_list.html'
+
+    def get_queryset(self) -> QuerySet[
+        Event.objects.filter(status=2)
+        ]:
+        return super().get_queryset()
 
 
 class EventListView(ListView):
