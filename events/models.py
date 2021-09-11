@@ -1,4 +1,5 @@
 from django.db import models
+from django.forms.widgets import HiddenInput, Widget
 from warehouse.models import Product
 from customers.models import Client
 from django.urls import reverse
@@ -7,9 +8,10 @@ from django.urls import reverse
 
 class Event(models.Model):
     id = models.AutoField(primary_key=True, blank=False, null=False)
-    client = models.ForeignKey(Client, null=True, blank=False, on_delete=models.SET_NULL)
+    client = models.ForeignKey(Client, null=True, blank=True, on_delete=models.SET_NULL)
     time_add = models.DateTimeField(auto_now=True, blank=False, null=False)
-    time_done = models.DateTimeField(auto_now=True, blank=False, null=False)
+    time_done = models.DateTimeField(auto_now=False, blank=False, null=False)
+    outcome = models.BooleanField(blank=True, null=False)
     CHOICES_STATUS = (
         (1, "Planowane"),
         (2, "Wykonane"))
@@ -21,6 +23,7 @@ class Event(models.Model):
     
     def get_absolute_url(self):
         return reverse('event_detail', args=[str(self.id)])
+
 
 
 class EventProduct(models.Model):

@@ -2,14 +2,26 @@
 
 <div class="content">
   {% block content %}
+    {% if event_detail.outcome == True %}
     <a class="btn btn-primary w-10 mb-3" href="{% url 'event_edit' pk=event_detail.pk %}">Edytuj</a>
+    {% else %}
+    <a class="btn btn-primary w-10 mb-3" role="button" href="{% url 'event_in_edit' pk=event_detail.pk %}">Edytuj</a>
+    {% endif %}
     <a role="button" onclick="javascript:history.back();" class="btn btn-outline-secondary w-10 mb-3">Cofnij</a>
     <div class="">
-    <h2>{{ event_detail.client.first_name }}{{" "}}{{ event_detail.client.last_name }}</h2>
+      {% if event_detail.outcome == True %}
+    <h2>{{ "Wizyta: " }}{{ event_detail.client.first_name }}{{" "}}{{ event_detail.client.last_name }}</h2>
     <p><strong>Imię:</strong> {{ event_detail.client.first_name }}</p> 
     <p><strong>Nazwisko:</strong> {{ event_detail.client.last_name }}</p>
     <p><strong>Numer telefonu:</strong> {{ event_detail.client.tel_number }}</p>
     <p><strong>Status:</strong> {{ event_detail.get_status_display }}</p>
+    <p><strong>Czas dodania:</strong> {{ event_detail.time_add }}</p>
+    <p><strong>Czas zakończenia:</strong> {{ event_detail.time_done }}</p>
+      {% else %}
+    <h2 class="">{{ "Przyjęcie magazynowe" }}</h2>
+    <p><strong>Status:</strong> {{ event_detail.get_status_display }}</p>
+    <p><strong>Czas dodania:</strong> {{ event_detail.time_add }}</p>
+      {% endif %}
   </div>
   <div class="p-2">
     <table class="table-sm w-25 table-hover table-bordered"> 

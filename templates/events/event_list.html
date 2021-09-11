@@ -30,20 +30,25 @@ $(document).ready(function(){
     <a class="btn btn-primary w-10 mb-3" role="button" href="{% url 'event_create' %}">Dodaj zdarzenie</a>
 </div>
 <div class="container"></div>
-<table id="plistTable", class="table table-hover table-bordered w-50">
+<table id="plistTable", class="table table-hover table-bordered w-75">
     <thead>   <!-- header row -->
         <tr class="bg-primary text-white">
             <th class="">Klient</th>
             <th class="">Czas dodania</th>
             <th class="">Czas zakończenia</th>
             <th class="">Status</th>
+            <th class="">Kierunek</th>
         </tr>
     </thead>
     <tbody>   <!-- data  -->
     {% for Event in event_list %}
         <tr class="">
             <td>
+                {% if Event.client == Null %}
+                <a class ="link" href="{{ Event.get_absolute_url }}"> {{ "Nie dotyczy" }} </a>
+                {% else %}
                 <a class ="link" href="{{ Event.get_absolute_url }}"> {{ Event.client }} </a>
+                {% endif %}
             </td>
             <td>
                 <a class ="link" href="{{ Event.get_absolute_url }}"> {{ Event.time_add }} </a>
@@ -53,6 +58,13 @@ $(document).ready(function(){
             </td>
             <td>
                 <a class ="link" href="{{ Event.get_absolute_url }}"> {{ Event.get_status_display }} </a>
+            </td>
+            <td>
+                {% if Event.outcome == True %}
+                <a class ="link" href="{{ Event.get_absolute_url }}"> {{ "Zew." }} </a>
+                {% else %}
+                <a class ="link" href="{{ Event.get_absolute_url }}"> {{ "Wew." }} </a>
+                {% endif %}
             </td>
         </tr>
     {% endfor %}

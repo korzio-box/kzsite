@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
-<form action="" method="post" class = "create_event" enctype="multipart/form-data">
+<form action="" method="post" class = "create_in_event" enctype="multipart/form-data">
     {% csrf_token %}
     <p class="pt-2">
       <button type="submit" value="" class="btn btn-primary w-10 mb-3" role="button">Zapisz</button>
@@ -8,7 +8,7 @@
    </p>
     <table>
       <div class="d-inline-flex m-1">
-      {{ form }}
+        {{ form }}
       </div>
     </table>
       {% for form in formset %}
