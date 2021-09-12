@@ -96,13 +96,14 @@ class EventEditView(UpdateView):
     def form_valid(self, form):
         context = self.get_context_data(form=form)
         formset = context['event_formset']
-        if formset.is_valid():
-            response = super().form_valid(form)
-            formset.instance = self.object
-            formset.save()
-            return response
-        else:
-            return super().form_invalid(form)
+        for form in formset.forms:
+            if formset.is_valid():
+                response = super().form_valid(form)
+                formset.instance = self.object
+                formset.save()
+                return response
+            else:
+                return super().form_invalid(form)
 
     def get_success_url(self):
         return reverse('event_list')

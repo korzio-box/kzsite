@@ -12,20 +12,19 @@
     <nav class="navbar navbar-dark bg-primary">
         <div class="navbar d-inline-flex m-2">
             {% block nav %}
-            <div id="nav">
-                    <a>{% block nav-home %}<a class="text-white p-2" href="{% url 'home' %}">Start</a>{% endblock %}</a>
-                    <a>{% block nav-event %}<a class="text-white p-2" href="{% url 'event_list' %}">Zdarzenia</a>{% endblock %}</a>
-                    <a>{% block nav-client %}<a class="text-white p-2" href="{% url 'client_list' %}">Klienci</a>{% endblock %}</a>
-                    <a>{% block nav-product %}<a class="text-white p-2" href="{% url 'product_list' %}">Produkty</a>{% endblock %}</a>
-                    <a>{% block nav-type %}<a class="text-white p-2" href="{% url 'ptype_list' %}">Typy</a>{% endblock %}</a>
-                    <a>{% block nav-group %}<a class="text-white p-2" href="{% url 'pgroup_list' %}">Grupy</a>{% endblock %}</a>
+            <div>
+                <a>{% block nav-home %}<a class="text-white p-2" href="{% url 'home' %}">Start</a>{% endblock %}</a>
+                <a>{% block nav-event %}<a class="text-white p-2" href="{% url 'event_list' %}">Zdarzenia</a>{% endblock %}</a>
+                <a>{% block nav-client %}<a class="text-white p-2" href="{% url 'client_list' %}">Klienci</a>{% endblock %}</a>
+                <a>{% block nav-product %}<a class="text-white p-2" href="{% url 'product_list' %}">Produkty</a>{% endblock %}</a>
+                <a>{% block nav-type %}<a class="text-white p-2" href="{% url 'ptype_list' %}">Typy</a>{% endblock %}</a>
+                <a>{% block nav-group %}<a class="text-white p-2" href="{% url 'pgroup_list' %}">Grupy</a>{% endblock %}</a>
             </div>
             {% endblock %}
         </div>
     </nav>
     <div class="m-3">
         {% block title %}
-        <h2></h2>
         {% endblock %}
     </div>
 

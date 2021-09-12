@@ -38,17 +38,52 @@ $(document).ready(function(){
   <input type="button" class="btn btn-success" value="Dodaj pozycję" id="add_more">
 </p>
 
-<div id="form_set" class="">
-  <div class="d-inline-flex p-2">
-    {{ event_formset }}
-  </div>
+<div class="d-inline-flex py-2">
+  {{ event_formset.management_form }}
+  <table class="d-inline-flex py-2">
+    <tr class="d-inline-flex">
+      <table>
+        {% for form in event_formset.forms %}
+        {% if forloop.first %}
+        <thead class="">
+          <tr>
+            {% for field in form.visible_fields %}
+              <th>
+                {{ field.label|capfirst }}
+              </th>
+            {% endfor %}
+          </tr>
+        </thead>
+        {% endif %}
+        <div id="form_set">
+          <tbody class="">
+            <tr>
+            {% for field in form.visible_fields %} 
+              <td>
+                {{ field }}
+              </td>
+            {% endfor %}
+            </tr>
+          </tbody>
+        </div>
+      {% endfor %}
+      </table>
+    </tr>
+  </table>
 </div>
 
 <div id="empty_form" style="display:none">
-  <div class="d-flex p-2">
-    {{ event_formset.empty_form }}
-  </div>
-</div>
+  <tbody class="">
+    <tr>
+ 
+    {% for field in event_formset.form.visible_fields %} 
+      <td>
+        {{ field }}
+      </td>
+    {% endfor %}
 
+    </tr>
+  </tbody>
+</div>
 </form>
 {% endblock %}

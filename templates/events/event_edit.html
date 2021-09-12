@@ -7,54 +7,52 @@
 {% endblock %}
 
 {% block content %}
+
+<script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js'></script>
+<script type='text/javascript'>
+$(document).ready(function(){
+  $('#add_more').click(function() {
+	  var form_idx = $('#id_eventproduct_set-TOTAL_FORMS').val();
+	  $('#form_set').append($('#empty_form').html().replace(/__prefix__/g, form_idx));
+	  $('#id_eventproduct_set-TOTAL_FORMS').val(parseInt(form_idx) + 1);
+  });
+});
+</script>
+
 <form action="" method="post" class = "create_event" enctype="multipart/form-data">
     {% csrf_token %}
     <p class="pt-2">
       <button type="submit" value="" class="btn btn-primary w-10 mb-3" role="button">Zapisz</button>
       <a role="button" onclick="javascript:history.back();" class="btn btn-outline-secondary w-10 mb-3">Cofnij</a>
    </p>
-    <table>
-      <div class="d-inline-flex m-1">
-      {{ form }}
-      </div>
-    </table>
-      {% for form in formset %}
-        {% for hidden in form.hidden_fields %}
-        {{ hidden }}
+
+   <table>
+    <tr>
+      <th>
+        {{ form.as_p}}
+      </th>
+    </tr>
+  </table>
+  
+  <p class="pt-2">
+    <input type="button" class="btn btn-success" value="Dodaj pozycję" id="add_more">
+  </p>
+
+  {{ event_formset.management_form }}
+
+  <div id="form_set" class="">
+        {% for form in event_formset %}
+        <div class="">
+        {{ form }}
+        </div>
         {% endfor %}
-      {% endfor %}
-    <div class="d-inline-flex py-2">
-      <table class="d-inline-flex py-2 display: inline">
-        <tr class="d-inline-flex">
-          {{ event_formset.management_form }}
-          {{ event_formset.non_form_errors.as_ul }}
-          <table id="formset" class="form">
-          {% for form in event_formset.forms %}
-            {% if forloop.first %}
-            <thead><tr>
-              {% for field in form.visible_fields %}
-              <th>{{ field.label|capfirst }}</th>
-              {% endfor %}
-            </tr></thead>
-            {% endif %}
-            <tr class="">
-            {% for field in form.visible_fields %}
-              <td>
-              {# Include the hidden fields in the form #}
-              {% if forloop.first %}
-                {% for hidden in form.hidden_fields %}
-                {{ hidden }}
-                {% endfor %}
-              {% endif %}
-                {{ field.errors.as_ul }}
-                {{ field }}
-              </td>
-            {% endfor %}
-            </tr>
-          {% endfor %}
-          </table>
-        </tr>
-      </table>
+  </div>
+  
+  <div id="empty_form" style="display:none">
+    <div class="d-flex">
+      {{ event_formset.empty_form }}
     </div>
-   </form>
+  </div>
+
+</form>
 {% endblock %}
