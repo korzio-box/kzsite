@@ -13,6 +13,7 @@ class EventFormIn(forms.ModelForm):
     status = forms.ChoiceField(label='Status',choices = Event.CHOICES_STATUS, initial=2)
     client = forms.ModelChoiceField(queryset=Client.objects.all(), label='Klient', widget=HiddenInput, required = False)
     outcome = forms.BooleanField(initial=False, widget=HiddenInput, required = False)
+    time_done = forms.DateTimeField(widget=forms.DateTimeInput(attrs= {'type':'datetime-local'}),label='Termin')
 
     class Meta:
         model = Event

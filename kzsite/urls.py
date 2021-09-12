@@ -21,7 +21,7 @@ from kzsite.views import BaseView
 
 urlpatterns = [
     path('', BaseView, name='home'),
-    path('admin/', admin.site.urls),
+    path('adnim/', admin.site.urls),
     path('products/', include('warehouse.urls')),
     path('customers/', include('customers.urls')),
     path('events/', include('events.urls'))

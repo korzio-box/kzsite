@@ -1,5 +1,11 @@
 {% extends "base.html" %}
 
+{% block nav-product %}<a class="btn btn-primary active" href="{% url 'product_list' %}">Produkty</a>{% endblock %}
+
+{% block title %}
+<h2>Detale produktu</h2>
+{% endblock %}
+
 <div class="content">
   {% block content %}
     <a class="btn btn-primary w-10 mb-3" href="{% url 'product_edit' pk=product_detail.pk %}">Edytuj</a>

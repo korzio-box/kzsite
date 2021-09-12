@@ -1,5 +1,11 @@
 {% extends "base.html" %}
 
+<a>{% block nav-client %}<a class="btn btn-primary active" href="{% url 'client_list' %}">Klienci</a>{% endblock %}</a>
+
+{% block title %}
+<h2>Detale klienta</h2>
+{% endblock %}
+
 <div class="content">
   {% block content %}
     <a class="btn btn-primary w-10 mb-3" role="button" href="{% url 'client_edit' pk=client_detail.pk %}">Edytuj</a>

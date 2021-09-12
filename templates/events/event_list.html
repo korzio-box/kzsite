@@ -1,5 +1,10 @@
 {% extends "base.html" %}
 
+<a>{% block nav-event %}<a class="btn btn-primary active" href="{% url 'event_list' %}">Zdarzenia</a>{% endblock %}</a>
+
+{% block title %}
+<h2>Lista zdarzeń</h2>
+{% endblock %}
 {% block content %}
 <script type="text/javascript" language="javascript" src="http://datatables.net/release-datatables/media/js/jquery.js"></script>
 <script type="text/javascript" language="javascript" src="http://datatables.net/release-datatables/media/js/jquery.dataTables.js"></script>
@@ -26,6 +31,10 @@ $(document).ready(function(){
 });
 
 </script>
+
+<div class="">
+    <a class="btn btn-primary w-10 mb-3" role="button" href="{% url 'event_in_create' %}">Dodaj przyjęcie magazynowe</a>
+</div>
 <div class="add">
     <a class="btn btn-primary w-10 mb-3" role="button" href="{% url 'event_create' %}">Dodaj zdarzenie</a>
 </div>

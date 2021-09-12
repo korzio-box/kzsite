@@ -1,5 +1,11 @@
 {% extends "base.html" %}
 
+<a>{% block nav-event %}<a class="btn btn-primary active" href="{% url 'event_list' %}">Zdarzenia</a>{% endblock %}</a>
+
+{% block title %}
+<h2>Detale zdarzenia</h2>
+{% endblock %}
+
 <div class="content">
   {% block content %}
     {% if event_detail.outcome == True %}

@@ -1,5 +1,11 @@
 {% extends "base.html" %}
 
+<a>{% block nav-home %}<a class="btn btn-primary active" href="{% url 'home' %}">Start</a>{% endblock %}</a>
+
+{% block title %}
+<h2>Strona startowa</h2>
+{% endblock %}
+
 {% block content %}
 <div class='counters'>
     <ul>

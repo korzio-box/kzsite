@@ -1,5 +1,11 @@
 {% extends "base.html" %}
 
+{% block nav-product %}<a class="btn btn-primary active" href="{% url 'product_list' %}">Produkty</a>{% endblock %}
+
+{% block title %}
+<h2>Dodawanie produktu</h2>
+{% endblock %}
+
 {% block content %}
 <form method="post" class = "create_ptype">
     {% csrf_token %}

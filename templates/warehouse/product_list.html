@@ -1,6 +1,13 @@
 {% extends "base.html" %}
 
+{% block nav-product %}<a class="btn btn-primary active" href="{% url 'product_list' %}">Produkty</a>{% endblock %}
+
+{% block title %}
+<h2>Lista produktów</h2>
+{% endblock %}
+
 {% block content %}
+
 <script type="text/javascript" language="javascript" src="http://datatables.net/release-datatables/media/js/jquery.js"></script>
 <script type="text/javascript" language="javascript" src="http://datatables.net/release-datatables/media/js/jquery.dataTables.js"></script>
 <script>
@@ -25,10 +32,10 @@ $(document).ready(function(){
 </script>
 
 <div class="">
-    <a class="btn btn-primary w-10 m-3" role="button" href="{% url 'event_in_create' %}">Dodaj przyjęcie magazynowe</a>
+    <a class="btn btn-primary w-10 mb-3" role="button" href="{% url 'event_in_create' %}">Dodaj przyjęcie magazynowe</a>
 </div>
 <div class="">
-<a class="btn btn-primary w-10 m-3" role="button" href="{% url 'product_create' %}">Dodaj produkt</a>
+<a class="btn btn-primary w-10 mb-3" role="button" href="{% url 'product_create' %}">Dodaj produkt</a>
 </div>
 <table id="plistTable", class="table table-hover table-bordered w-50">
     <thead>   <!-- header row -->

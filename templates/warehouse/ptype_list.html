@@ -1,5 +1,11 @@
 {% extends "base.html" %}
 
+<a>{% block nav-type %}<a class="btn btn-primary active" href="{% url 'ptype_list' %}">Typy</a>{% endblock %}</a>
+
+{% block title %}
+<h2>Lista typów</h2>
+{% endblock %}
+
 {% block content %}
 <script type="text/javascript" language="javascript" src="http://datatables.net/release-datatables/media/js/jquery.js"></script>
 <script type="text/javascript" language="javascript" src="http://datatables.net/release-datatables/media/js/jquery.dataTables.js"></script>

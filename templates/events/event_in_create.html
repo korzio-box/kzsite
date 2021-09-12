@@ -1,4 +1,11 @@
 {% extends "base.html" %}
+
+<a>{% block nav-event %}<a class="btn btn-primary active" href="{% url 'event_list' %}">Zdarzenia</a>{% endblock %}</a>
+
+{% block title %}
+<h2>Dodawanie zdarzenia</h2>
+{% endblock %}
+
 {% block content %}
 <form action="" method="post" class = "create_in_event" enctype="multipart/form-data">
     {% csrf_token %}

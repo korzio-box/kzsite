@@ -1,5 +1,11 @@
 {% extends "base.html" %}
 
+<a>{% block nav-group %}<a class="btn btn-primary active" href="{% url 'pgroup_list' %}">Grupy</a>{% endblock %}</a>
+
+{% block title %}
+<h2>Dodawanie grupy</h2>
+{% endblock %}
+
 {% block content %}
 <form method="post" class = "create_pgroup">
     {% csrf_token %}
