@@ -31,5 +31,5 @@ class EventForm(forms.ModelForm):
         
 EventProductFormset = inlineformset_factory(Event, EventProduct,
                                             fields=('product', 'quantity'),
-                                            extra=8)
+                                            extra=1, can_delete=True)
                                             ##form=EventForm)

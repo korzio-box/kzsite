@@ -7,29 +7,40 @@
 {% endblock %}
 
 {% block content %}
+
+<script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js'></script>
+<script type='text/javascript'>
+
+</script>
+
 <form action="" method="post" class = "create_event" enctype="multipart/form-data">
     {% csrf_token %}
     <p class="pt-2">
       <button type="submit" value="" class="btn btn-primary w-10 mb-3" role="button">Zapisz</button>
       <a role="button" onclick="javascript:history.back();" class="btn btn-outline-secondary w-10 mb-3">Cofnij</a>
    </p>
+
     <table>
       <div class="d-inline-flex m-1">
         {{ form }}
       </div>
     </table>
+<p class="pt-2">
+  <input type="button" class="btn btn-success" value="Dodaj pozycję" id="add_more">
+</p>
       {% for form in formset %}
         {% for hidden in form.hidden_fields %}
         {{ hidden }}
         {% endfor %}
       {% endfor %}
-    <div class="d-inline-flex py-2">
-      <table class="d-inline-flex py-2 display: inline">
+
+    <div id="form_set" class="d-inline-flex py-2">
+      <table id="" class="d-inline-flex py-2 display: inline">
         <tr class="d-inline-flex">
-          {{ event_formset.management_form }}
           {{ event_formset.non_form_errors.as_ul }}
-          <table id="formset" class="form">
+          <table id="" class="form">
           {% for form in event_formset.forms %}
+          {{ event_formset.management_form }}
             {% if forloop.first %}
             <thead><tr>
               {% for field in form.visible_fields %}
@@ -38,23 +49,28 @@
             </tr></thead>
             {% endif %}
             <tr class="">
-            {% for field in form.visible_fields %}
-              <td>
-              {# Include the hidden fields in the form #}
-              {% if forloop.first %}
-                {% for hidden in form.hidden_fields %}
-                {{ hidden }}
-                {% endfor %}
-              {% endif %}
-                {{ field.errors.as_ul }}
-                {{ field }}
-              </td>
-            {% endfor %}
+              <div id="">
+                {% for field in form.visible_fields %}
+                <td>
+                {# Include the hidden fields in the form #}
+                {% if forloop.first %}
+                  {% for hidden in form.hidden_fields %}
+                  {{ hidden }}
+                  {% endfor %}
+                {% endif %}
+                  {{ field.errors.as_ul }}
+                  {{ field }}
+                </td>
+              {% endfor %}
+              </div>
             </tr>
           {% endfor %}
           </table>
         </tr>
       </table>
     </div>
-   </form>
+  
+
+
+</form>
 {% endblock %}
