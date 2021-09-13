@@ -1,22 +1,10 @@
 #plistTable_wrapper {
-    margin-left: 15%;
+    margin-left: 5%;
   }
   
   div.content {
     margin-top: 5%;
-    margin-left: 15%;
-  }
-  
-  div.sidebar {
     margin-left: 5%;
-    margin-top: 2%;
-    border: 2px solid #1C6EA4;
-    background-color: #EEEEEE;
-    width: 20%;
-    text-align: center;
-    border-collapse: collapse;
-    padding: 1px 3px;
-    width: 7%;
   }
   
   a.link {

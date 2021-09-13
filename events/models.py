@@ -9,8 +9,8 @@ from django.urls import reverse
 class Event(models.Model):
     id = models.AutoField(primary_key=True, blank=False, null=False)
     client = models.ForeignKey(Client, null=True, blank=True, on_delete=models.SET_NULL)
-    time_add = models.DateTimeField(auto_now=True, blank=False, null=False,)
-    time_done = models.DateTimeField(auto_now_add=False, blank=False, null=False,)
+    time_add = models.DateTimeField(auto_now_add=True, blank=False, null=False,)
+    time_done = models.DateTimeField(auto_now=False, blank=False, null=False,)
     outcome = models.BooleanField(blank=True, null=False)
     CHOICES_STATUS = (
         (1, "Planowane"),

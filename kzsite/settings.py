@@ -110,9 +110,9 @@ LANGUAGE_CODE = 'pl'
 
 TIME_ZONE = 'Europe/Warsaw'
 
-DATETIME_INPUT_FORMATS = '%d.%m.%Y %H:%M'
+#DATETIME_INPUT_FORMATS = '%d-%m-%Y %H:%M'
 
-DATETIME_FORMAT = 'd.m.Y H:i'
+DATETIME_FORMAT = 'd-m-Y H:i'
 
 USE_I18N = True
 
