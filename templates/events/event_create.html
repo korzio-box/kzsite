@@ -10,11 +10,12 @@
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-
+<script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/pl.js"></script>
 <script>
     // This code activates flatpickr on fields with the 'datetimefield' class when the document has loaded
     window.addEventListener("DOMContentLoaded", function () {
         flatpickr(".datetimefield", {
+            locale: 'pl',
             enableTime: true,
             enableSeconds: false,
             dateFormat: "Y-m-d H:i:S",
